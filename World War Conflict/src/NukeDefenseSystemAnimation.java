@@ -29,6 +29,7 @@ public class NukeDefenseSystemAnimation extends Canvas
 				frame.setLayout(new GridBagLayout());
 				JButton btnA = new JButton("LAUNCH");
 				frame.add(btnA);
+				//fix button
 				btnA.addActionListener(new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0)
@@ -37,7 +38,6 @@ public class NukeDefenseSystemAnimation extends Canvas
 							System.out.println("Laser Activated");
 							launch = true;
 						}
-					
 				});
 //				while(x < 480)
 //					{
@@ -62,6 +62,7 @@ public class NukeDefenseSystemAnimation extends Canvas
 					{
 						graphics.setColor(Color.DARK_GRAY);
 						graphics.fillOval(x2, y2, 10, 20);
+						//fix so laser fires when button is pressed
 						if (launch)
 							{
 								graphics.setColor(Color.red);
