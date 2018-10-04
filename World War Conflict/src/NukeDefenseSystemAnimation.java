@@ -63,35 +63,35 @@ public class NukeDefenseSystemAnimation extends Canvas
 			}
 		public void paint(Graphics graphics)
 			{
-//				while(x < 240)
-//					{
-//						graphics.setColor(Color.DARK_GRAY);
-//						graphics.fillOval(x2, y2, 10, 20);
-//						//fix so laser fires when button is pressed
-//						graphics.setColor(Color.white);
-//						graphics.fillRect(x - 5, y, 20, 20);
-//						graphics.setColor(Color.BLACK);
-//						graphics.fillRect(x, y, 20, 20);
-//						delay();
-//						x = x + 5;
-//					}
-//				if (launch)
-//					{
-//						graphics.setColor(Color.red);
-//						graphics.fillRect(x2 - 4, 0, 2, 300);
-//					}
-//				while(x < 480)
-//					{
-//						graphics.setColor(Color.DARK_GRAY);
-//						graphics.fillOval(x2, y2, 10, 20);
-//						//fix so laser fires when button is pressed
-//						graphics.setColor(Color.white);
-//						graphics.fillRect(x - 5, y, 20, 20);
-//						graphics.setColor(Color.BLACK);
-//						graphics.fillRect(x, y, 20, 20);
-//						delay();
-//						x = x + 5;
-//					}
+				while(x < 240)
+					{
+						graphics.setColor(Color.DARK_GRAY);
+						graphics.fillOval(x2, y2, 10, 20);
+						//fix so laser fires when button is pressed
+						graphics.setColor(Color.white);
+						graphics.fillRect(x - 5, y, 20, 20);
+						graphics.setColor(Color.BLACK);
+						graphics.fillRect(x, y, 20, 20);
+						delay();
+						x = x + 5;
+					}
+				if (launch)
+					{
+						graphics.setColor(Color.red);
+						graphics.fillRect(x2 - 4, 0, 2, 300);
+					}
+				while(x < 480)
+					{
+						graphics.setColor(Color.DARK_GRAY);
+						graphics.fillOval(x2, y2, 10, 20);
+						//fix so laser fires when button is pressed
+						graphics.setColor(Color.white);
+						graphics.fillRect(x - 5, y, 20, 20);
+						graphics.setColor(Color.BLACK);
+						graphics.fillRect(x, y, 20, 20);
+						delay();
+						x = x + 5;
+					}
 			}
 		public static void delay()
 			{
