@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 public class NukeDefenseSystemAnimation extends Canvas
 	{
@@ -16,7 +18,7 @@ public class NukeDefenseSystemAnimation extends Canvas
 		static int y2 = 300;
 		static boolean launch = false; 
 		static Scanner userInput = new Scanner(System.in);
-		public static void main(String[] args)
+		public static void main(String[] args, Graphics Graphics)
 			{
 				NukeDefenseSystemAnimation canvas = new NukeDefenseSystemAnimation();
 				JFrame frame = new JFrame(); //Creates new frame
@@ -27,9 +29,11 @@ public class NukeDefenseSystemAnimation extends Canvas
 				frame.setResizable(false); //Allows frame size to be changed
 				frame.setVisible(true);
 				frame.setLayout(new GridBagLayout());
+				//fix button
 				JButton btnA = new JButton("LAUNCH");
 				frame.add(btnA);
 				//fix button
+				
 				btnA.addActionListener(new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0)
@@ -39,6 +43,7 @@ public class NukeDefenseSystemAnimation extends Canvas
 							launch = true;
 						}
 				});
+				
 //				while(x < 480)
 //					{
 //						graphics.setColor(Color.DARK_GRAY);
@@ -58,23 +63,35 @@ public class NukeDefenseSystemAnimation extends Canvas
 			}
 		public void paint(Graphics graphics)
 			{
-				while(x < 480)
-					{
-						graphics.setColor(Color.DARK_GRAY);
-						graphics.fillOval(x2, y2, 10, 20);
-						//fix so laser fires when button is pressed
-						if (launch)
-							{
-								graphics.setColor(Color.red);
-								graphics.fillRect(x2 - 4, 0, 2, 300);
-							}
-						graphics.setColor(Color.white);
-						graphics.fillRect(x - 5, y, 20, 20);
-						graphics.setColor(Color.BLACK);
-						graphics.fillRect(x, y, 20, 20);
-						delay();
-						x = x + 5;
-					}
+//				while(x < 240)
+//					{
+//						graphics.setColor(Color.DARK_GRAY);
+//						graphics.fillOval(x2, y2, 10, 20);
+//						//fix so laser fires when button is pressed
+//						graphics.setColor(Color.white);
+//						graphics.fillRect(x - 5, y, 20, 20);
+//						graphics.setColor(Color.BLACK);
+//						graphics.fillRect(x, y, 20, 20);
+//						delay();
+//						x = x + 5;
+//					}
+//				if (launch)
+//					{
+//						graphics.setColor(Color.red);
+//						graphics.fillRect(x2 - 4, 0, 2, 300);
+//					}
+//				while(x < 480)
+//					{
+//						graphics.setColor(Color.DARK_GRAY);
+//						graphics.fillOval(x2, y2, 10, 20);
+//						//fix so laser fires when button is pressed
+//						graphics.setColor(Color.white);
+//						graphics.fillRect(x - 5, y, 20, 20);
+//						graphics.setColor(Color.BLACK);
+//						graphics.fillRect(x, y, 20, 20);
+//						delay();
+//						x = x + 5;
+//					}
 			}
 		public static void delay()
 			{
