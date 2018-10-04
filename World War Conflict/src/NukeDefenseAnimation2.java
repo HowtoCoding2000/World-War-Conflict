@@ -20,6 +20,7 @@ public class NukeDefenseAnimation2 extends JFrame
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setSize(500,500);
 				
+				add(gameEngine);
 				
 				addKeyListener(new KeyAdapter()
 							{
@@ -30,10 +31,11 @@ public class NukeDefenseAnimation2 extends JFrame
 										switch (e.getKeyCode()) 
 										{
 											case KeyEvent.VK_ENTER:
-												
+//												gameEngine.(fireLaser);
+												//add class in NukeEngine to fire the laser
 												break;
 											case KeyEvent.VK_SPACE:
-												NukeEngine.start();
+												gameEngine.start();
 												break;
 										}
 									}
@@ -47,13 +49,13 @@ public class NukeDefenseAnimation2 extends JFrame
 	}
 class NukeEngine extends JPanel
 	{
-		static boolean running = false;
+		boolean running = false;
 		static int x = 0;
 		static int y = 100;
 		static int x2 = 230;
 		static int y2 = 300;
 		String message = "Press space to start";
-		public static void start() 
+		public void start() 
 			{
 				if (!running) 
 					{
