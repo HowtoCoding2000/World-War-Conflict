@@ -20,6 +20,11 @@ public class NukeDefenseAnimation2 extends JFrame
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setSize(500,500);
 				
+				JLabel instructions = new JLabel("Press Enter to launch the laser and stop the nuke.");
+				instructions.setOpaque(true);
+				instructions.setBackground(Color.green);
+				add(instructions, BorderLayout.SOUTH);
+				
 				add(gameEngine);
 				
 				addKeyListener(new KeyAdapter()
