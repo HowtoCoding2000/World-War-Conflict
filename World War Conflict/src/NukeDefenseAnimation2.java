@@ -52,7 +52,7 @@ class NukeEngine extends JPanel
 		static int y = 100;
 		static int x2 = 230;
 		static int y2 = 300;
-		
+		String message = "Press space to start";
 		public static void start() 
 			{
 				if (!running) 
