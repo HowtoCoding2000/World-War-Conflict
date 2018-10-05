@@ -86,7 +86,7 @@ class NukeEngine extends JPanel
 					{
 						laserY -= 10;
 					}
-				if (nukeY + 20 > 480)
+				if (nukeY + 20 >= 480)
 					{
 //						showGameOver();
 						System.out.println("Game Over");
