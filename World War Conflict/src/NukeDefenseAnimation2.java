@@ -84,9 +84,9 @@ class NukeEngine extends JPanel
 				nukeX += 5;
 				if(laserFired)
 					{
-						laserY -= 5;
+						laserY -= 10;
 					}
-				if (nukeY + 20 > getHeight())
+				if (nukeY + 20 > 480)
 					{
 //						showGameOver();
 						System.out.println("Game Over");
