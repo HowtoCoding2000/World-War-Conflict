@@ -9,10 +9,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 public class NukeDefenseAnimation2 extends JFrame
 	{
 		NukeEngine gameEngine = new NukeEngine();
-		
 		public NukeDefenseAnimation2()
 			{
 				setTitle("NukeDefense");
@@ -36,8 +36,7 @@ public class NukeDefenseAnimation2 extends JFrame
 										switch (e.getKeyCode()) 
 										{
 											case KeyEvent.VK_ENTER:
-//												gameEngine.(fireLaser);
-												//add class in NukeEngine to fire the laser
+												gameEngine.fireLaser();
 												break;
 											case KeyEvent.VK_SPACE:
 												gameEngine.start();
@@ -54,12 +53,54 @@ public class NukeDefenseAnimation2 extends JFrame
 	}
 class NukeEngine extends JPanel
 	{
-		boolean running = false;
-		static int x = 0;
-		static int y = 100;
-		static int x2 = 230;
-		static int y2 = 300;
 		String message = "Press space to start";
+		boolean running = false;
+		static int nukeX = 0;
+		static int nukeY = 100;
+		static int sateliteX = 230;
+		static int sateliteY = 300;
+		static int laserX = 239;
+		static int laserY = 305;
+		static boolean laserFired = false;
+		
+		public NukeEngine()
+			{
+				Timer timer = new Timer(50, new ActionListener() 
+					{
+						@Override
+						public void actionPerformed(ActionEvent e) 
+							{
+								if (running) 
+									{
+										updateGame();
+									}
+							}
+					});
+				timer.start();
+			}
+		
+		public void updateGame()
+			{
+				nukeX += 5;
+				if(laserFired)
+					{
+						laserY -= 5;
+					}
+				if (nukeY + 20 > getHeight())
+					{
+//						showGameOver();
+						System.out.println("Game Over");
+						System.out.println("The world was destroyed by the nuke.");
+					}
+				else if ((nukeX == laserX) && (nukeY == laserY))
+					{
+//						showYouWon();
+						System.out.println("You Won");
+						System.out.println("You saved the world.");
+					}
+				repaint();
+			}
+		
 		public void start() 
 			{
 				if (!running) 
@@ -67,18 +108,29 @@ class NukeEngine extends JPanel
 						running = true;
 					}
 			}
+		
+		public void fireLaser()
+			{
+				if (!laserFired)
+					{
+						laserFired = true;
+					}
+			}
+		
 		@Override
 		public void paint(Graphics graphics)
 			{
 				super.paintComponent(graphics);
 				if (running)
 					{
+						graphics.setColor(Color.RED);
+						graphics.fillRect(laserX, laserY - 5, 2, 15);
 						graphics.setColor(Color.DARK_GRAY);
-						graphics.fillOval(x2, y2, 10, 20);
+						graphics.fillOval(sateliteX, sateliteY, 10, 20);
 						graphics.setColor(Color.white);
-						graphics.fillRect(x - 5, y, 20, 20);
+						graphics.fillRect(nukeX - 5, nukeY, 20, 20);
 						graphics.setColor(Color.BLACK);
-						graphics.fillRect(x, y, 20, 20);
+						graphics.fillRect(nukeX, nukeY, 20, 20);
 					}
 				else
 					{
@@ -89,4 +141,5 @@ class NukeEngine extends JPanel
 						graphics.drawString(message, getWidth()/2 - w/2, getHeight()/2 - h/2);
 					}
 			}
+		
 	}
