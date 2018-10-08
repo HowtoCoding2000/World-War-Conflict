@@ -87,12 +87,14 @@ class NukeEngine extends JPanel
 				nukeX += 5;
 				if(laserFired)
 					{
+
 						laserY -= 15;
 						if(laserY < 0)
 							{
 								laserFired = false;
 								laserY = 305;
 							}
+
 					}
 				if (nukeX + nukeSize > getWidth())
 					{
