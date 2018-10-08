@@ -55,6 +55,7 @@ class NukeEngine extends JPanel
 	{
 		String message = "Press space to start";
 		boolean running = false;
+		static int nukeSize = 20;
 		static int nukeX = 0;
 		static int nukeY = 100;
 		static int sateliteX = 230;
@@ -81,24 +82,48 @@ class NukeEngine extends JPanel
 		
 		public void updateGame()
 			{
+				if(running)
+					{
 				nukeX += 5;
 				if(laserFired)
 					{
-						laserY -= 5;
+						laserY -= 15;
+						if(laserY < 0)
+							{
+								laserFired = false;
+								laserY = 305;
+							}
 					}
-				if (nukeY + 20 > getHeight())
+				if (nukeX + nukeSize > getWidth())
 					{
-//						showGameOver();
-						System.out.println("Game Over");
-						System.out.println("The world was destroyed by the nuke.");
+						showGameOver();
+						running = false;
+						nukeX = 0;
+						nukeY = 100;
+						sateliteX = 230;
+						sateliteY = 300;
+						laserX = 239;
+						laserY = 305;
+						laserFired = false;
+//						System.out.println("Game Over");
+//						System.out.println("The world was destroyed by the nuke.");
 					}
-				else if ((nukeX == laserX) && (nukeY == laserY))
+				else if ((laserX > nukeX) && (laserX < nukeX + nukeSize) && (laserY > nukeY) && (laserY < nukeY + nukeSize))
 					{
-//						showYouWon();
-						System.out.println("You Won");
-						System.out.println("You saved the world.");
+						showYouWon();
+						running = false;
+						nukeX = 0;
+						nukeY = 100;
+						sateliteX = 230;
+						sateliteY = 300;
+						laserX = 239;
+						laserY = 305;
+						laserFired = false;
+//						System.out.println("You Won");
+//						System.out.println("You saved the world.");
 					}
 				repaint();
+					}
 			}
 		
 		public void start() 
@@ -127,10 +152,14 @@ class NukeEngine extends JPanel
 						graphics.fillRect(laserX, laserY - 5, 2, 15);
 						graphics.setColor(Color.DARK_GRAY);
 						graphics.fillOval(sateliteX, sateliteY, 10, 20);
+						graphics.fillRect(sateliteX - 10, sateliteY + 10, 30, 2);
+						graphics.setColor(Color.BLUE);
+						graphics.fillRect(sateliteX - 25, sateliteY, 15, 20);
+						graphics.fillRect(sateliteX + 20, sateliteY, 15, 20);
 						graphics.setColor(Color.white);
-						graphics.fillRect(nukeX - 5, nukeY, 20, 20);
+						graphics.fillRect(nukeX - 5, nukeY, nukeSize, nukeSize);
 						graphics.setColor(Color.BLACK);
-						graphics.fillRect(nukeX, nukeY, 20, 20);
+						graphics.fillRect(nukeX, nukeY, nukeSize, nukeSize);
 					}
 				else
 					{
@@ -141,5 +170,16 @@ class NukeEngine extends JPanel
 						graphics.drawString(message, getWidth()/2 - w/2, getHeight()/2 - h/2);
 					}
 			}
-		
+		public void showGameOver()
+			{
+				System.out.println("Game Over");
+				System.out.println("The world was destroyed by the nuke.");
+				System.out.println();
+			}
+		public void showYouWon()
+			{
+				System.out.println("You Won");
+				System.out.println("You saved the world.");
+				System.out.println();
+			}
 	}
