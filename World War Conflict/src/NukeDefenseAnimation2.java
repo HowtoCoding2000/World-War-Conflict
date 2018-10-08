@@ -105,8 +105,6 @@ class NukeEngine extends JPanel
 						laserX = 239;
 						laserY = 305;
 						laserFired = false;
-//						System.out.println("Game Over");
-//						System.out.println("The world was destroyed by the nuke.");
 					}
 				else if ((laserX > nukeX) && (laserX < nukeX + nukeSize) && (laserY > nukeY) && (laserY < nukeY + nukeSize))
 					{
@@ -119,8 +117,6 @@ class NukeEngine extends JPanel
 						laserX = 239;
 						laserY = 305;
 						laserFired = false;
-//						System.out.println("You Won");
-//						System.out.println("You saved the world.");
 					}
 				repaint();
 					}
