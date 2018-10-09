@@ -20,7 +20,7 @@ public class NukeDefenseAnimation2 extends JFrame
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setSize(500,500);
 				
-				JLabel instructions = new JLabel("Press Enter to launch the laser and stop the nuke.");
+				JLabel instructions = new JLabel("Press enter to launch the laser and stop the nuke.");
 				instructions.setOpaque(true);
 				instructions.setBackground(Color.green);
 				add(instructions, BorderLayout.SOUTH);
@@ -53,7 +53,7 @@ public class NukeDefenseAnimation2 extends JFrame
 	}
 class NukeEngine extends JPanel
 	{
-		String message = "Press space to start";
+		String message = "Press space to start.";
 		boolean running = false;
 		static int nukeSize = 20;
 		static int nukeX = 0;
@@ -161,7 +161,7 @@ class NukeEngine extends JPanel
 					}
 				else
 					{
-						String message = "Press space to start";
+						String message = "Press space to start.";
 						graphics.setColor(Color.BLACK);
 						int h = graphics.getFontMetrics().getHeight();
 						int w = graphics.getFontMetrics().stringWidth(message);
@@ -170,13 +170,13 @@ class NukeEngine extends JPanel
 			}
 		public void showGameOver()
 			{
-				System.out.println("Game Over");
+				System.out.println("Game over!");
 				System.out.println("The world was destroyed by the nuke.");
 				System.out.println();
 			}
 		public void showYouWon()
 			{
-				System.out.println("You Won");
+				System.out.println("You won!");
 				System.out.println("You saved the world.");
 				System.out.println();
 			}
