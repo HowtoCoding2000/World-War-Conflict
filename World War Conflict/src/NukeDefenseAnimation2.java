@@ -84,43 +84,43 @@ class NukeEngine extends JPanel
 			{
 				if(running)
 					{
-				nukeX += 5;
-				if(laserFired)
-					{
-
-						laserY -= 15;
-						if(laserY < 0)
+						nukeX += 5;
+						if(laserFired)
 							{
-								laserFired = false;
-								laserY = 305;
+		
+								laserY -= 15;
+								if(laserY < 0)
+									{
+										laserFired = false;
+										laserY = 305;
+									}
+		
 							}
-
-					}
-				if (nukeX + nukeSize > getWidth())
-					{
-						showGameOver();
-						running = false;
-						nukeX = 0;
-						nukeY = 100;
-						sateliteX = 230;
-						sateliteY = 300;
-						laserX = 239;
-						laserY = 305;
-						laserFired = false;
-					}
-				else if ((laserX > nukeX) && (laserX < nukeX + nukeSize) && (laserY > nukeY) && (laserY < nukeY + nukeSize))
-					{
-						showYouWon();
-						running = false;
-						nukeX = 0;
-						nukeY = 100;
-						sateliteX = 230;
-						sateliteY = 300;
-						laserX = 239;
-						laserY = 305;
-						laserFired = false;
-					}
-				repaint();
+						if (nukeX + nukeSize > getWidth())
+							{
+								showGameOver();
+								running = false;
+								nukeX = 0;
+								nukeY = 100;
+								sateliteX = 230;
+								sateliteY = 300;
+								laserX = 239;
+								laserY = 305;
+								laserFired = false;
+							}
+						else if ((laserX > nukeX) && (laserX < nukeX + nukeSize) && (laserY > nukeY) && (laserY < nukeY + nukeSize))
+							{
+								showYouWon();
+								running = false;
+								nukeX = 0;
+								nukeY = 100;
+								sateliteX = 230;
+								sateliteY = 300;
+								laserX = 239;
+								laserY = 305;
+								laserFired = false;
+							}
+						repaint();
 					}
 			}
 		
